@@ -1,15 +1,17 @@
 package com.company.AnalyzePackage.CodeItemsPackage;
 
+import com.company.AnalyzePackage.VisitorPackage.AbstractVisitor;
+
 /**
  * Created by oleg on 16.02.16.
  */
-public class ACode {
+public class BCode implements BNode {
     private int maxStack;
     private int maxLocals;
     private int codeLength;
 
 
-    ACode(final ACode code) {
+    BCode(final BCode code) {
 
     }
 
@@ -35,5 +37,10 @@ public class ACode {
 
     public void setCodeLength(final int codeLength) {
         this.codeLength = codeLength;
+    }
+
+    @Override
+    public void accept(AbstractVisitor visitor) {
+        visitor.visitCode(this);
     }
 }
